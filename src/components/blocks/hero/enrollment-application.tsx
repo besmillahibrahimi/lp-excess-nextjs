@@ -17,18 +17,17 @@ export default function EnrollmentApplicationForm() {
 	return (
 		<Card>
 			<CardHeader>
-				<CardTitle>Card Title</CardTitle>
-				<CardDescription>Card Description</CardDescription>
+				<CardTitle>Apply Today!</CardTitle>
 			</CardHeader>
 			<CardContent>
 				{enrolling ? <EnrollmentForm /> : <ApplicationForm />}
 			</CardContent>
-			<CardFooter>
+			<CardFooter className="flex justify-center">
 				<Button
 					variant={"link"}
 					type="button"
 					onClick={() => setEnrolling(!enrolling)}
-					className=""
+					className="text-center"
 				>
 					{enrolling
 						? "Continue with your application"

@@ -125,6 +125,6 @@
 		@apply bg-background text-foreground;
 	}
 	img {
-		@apply inline;
+		@apply inline mx-auto;
 	}
 }

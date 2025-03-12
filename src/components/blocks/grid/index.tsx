@@ -1,17 +1,18 @@
 "use client";
 import ContentBlock from "../content";
 
-export default function GridBlock({
-	mobileColumns = 1,
-	tabletColumns = 2,
-	desktopColumns = 3,
-	gaps = 1,
-	gapsX,
-	gapsY,
-	justify,
-	align,
-	children = [],
-}: GridDoc) {
+export default function GridBlock(props: GridDoc) {
+	const {
+		mobileColumns = 1,
+		tabletColumns = 2,
+		desktopColumns = 3,
+		gaps = 1,
+		gapsX,
+		gapsY,
+		justify,
+		align,
+		children = [],
+	} = props;
 	return (
 		<div className="container mx-auto gap-x">
 			<style jsx>{`
@@ -44,7 +45,7 @@ export default function GridBlock({
 		  }
 		`}</style>
 			<div className="my-grid">
-				{children.map((content) => (
+				{children?.map((content) => (
 					<ContentBlock {...content} key={content.id} />
 				))}
 			</div>
