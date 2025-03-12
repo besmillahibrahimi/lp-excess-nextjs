@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Project Setup Guide
 
-## Getting Started
+This guide provides step-by-step instructions to set up and run the Next.js project that is hosted on GitHub. The project fetches landing page data from a Strapi backend.
 
-First, run the development server:
+## Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Ensure you have the following installed:
+- [Node.js](https://nodejs.org/) (Recommended: Latest LTS version)
+- [pnpm](https://pnpm.io/installation)
+- [Git](https://git-scm.com/)
+- A running instance of [Strapi](https://strapi.io/) (Follow [Strapi Setup Guide](#) if not already set up)
+
+## 1. Clone the Repository
+
+Run the following command to clone the Next.js project from GitHub:
+
+```sh
+git clone https://github.com/csoft/lp-excess-react.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate into the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+cd lp-excess-react
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 2. Install Dependencies
 
-## Learn More
+Run the following command to install all project dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+```sh
+pnpm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 3. Configure Environment Variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project requires environment variables for connecting to the Strapi backend. Copy the `.env.example` file to create a `.env` file:
 
-## Deploy on Vercel
+```sh
+cp .env.example .env
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open the `.env` file in a text editor and update the values accordingly. Example:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_STRAPI_URL=http://localhost:1337
+```
+
+Ensure Strapi is running on `http://localhost:1337`. If Strapi is running on another host or port, update the `NEXT_PUBLIC_STRAPI_URL` accordingly.
+
+## 4. Run the Next.js Project
+
+Start the development server with:
+
+```sh
+pnpm dev
+```
+
+Once the server is running, open the project in your browser:
+
+```
+http://localhost:3000
+```
+
+## 5. Fetching Landing Page Data from Strapi
+
+The Next.js application retrieves landing page data from Strapi. If Strapi is running correctly, the homepage should display content fetched from the CMS.
+
+## 6. Open Strapi Dashboard & Make Changes
+
+To modify the landing page data:
+
+1. Open the Strapi admin panel:
+   ```
+   http://localhost:1337/admin
+   ```
+2. Log in with your Strapi credentials.
+3. Navigate to the relevant content type (e.g., `Landing Page`).
+4. Make changes to the content and save.
+5. Refresh the Next.js application (`http://localhost:3000`) to see the updates.
